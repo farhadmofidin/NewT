@@ -224,6 +224,35 @@
   .chip { font-size: .82rem; padding: 6px 12px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 9%, transparent); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--line)); white-space: nowrap; }
   .chip .en { font-size: .72rem; opacity: .75; letter-spacing: .02em; }
 
+  .sysprofiles { display: grid; gap: 16px; }
+  .sysprofile { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px clamp(18px,2.4vw,26px); border-inline-start: 4px solid var(--accent); }
+  .sysprofile.s2 { border-inline-start-color: var(--accent-2); }
+  .sysprofile.s3 { border-inline-start-color: var(--gold); }
+  .sp-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .sp-tag { font-size: .74rem; letter-spacing: .08em; color: var(--muted); font-weight: 700; }
+  .sp-head h3 { font-size: 1.25rem; color: var(--ink); margin-top: 3px; }
+  .sp-metric { text-align: center; background: var(--paper); border: 1px solid var(--line); border-radius: 11px; padding: 8px 18px; }
+  .sp-metric b { display: block; font-size: 1.35rem; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1.15; }
+  .sysprofile.s2 .sp-metric b { color: var(--accent-2); }
+  .sysprofile.s3 .sp-metric b { color: var(--gold); }
+  .sp-metric span { font-size: .72rem; color: var(--muted); }
+  .sp-desc { color: var(--muted); font-size: .92rem; margin: 12px 0 16px; }
+  .sp-modules { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+  @media (max-width: 760px){ .sp-modules { grid-template-columns: 1fr; } }
+  .mod { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 11px 13px; }
+  .mod b { display: block; font-size: .9rem; color: var(--ink); margin-bottom: 3px; }
+  .mod span { font-size: .8rem; color: var(--muted); line-height: 1.7; }
+  .mod .en { font-size: .72rem; opacity: .8; }
+  .sp-cx { margin-top: 14px; font-size: .84rem; color: var(--text); background: color-mix(in srgb, var(--warn) 8%, transparent); border: 1px solid color-mix(in srgb, var(--warn) 22%, var(--line)); border-radius: 9px; padding: 9px 13px; }
+  .sp-cx b { color: var(--warn); }
+
+  .chal-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+  @media (max-width: 720px){ .chal-grid { grid-template-columns: 1fr; } }
+  .chal { display: flex; gap: 13px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; box-shadow: var(--shadow); }
+  .chal .cn { flex: 0 0 30px; width: 30px; height: 30px; border-radius: 8px; background: color-mix(in srgb, var(--warn) 15%, transparent); color: var(--warn); display: grid; place-items: center; font-weight: 800; font-variant-numeric: tabular-nums; font-size: .9rem; }
+  .chal h3 { font-size: .98rem; margin-bottom: 3px; }
+  .chal p { font-size: .85rem; color: var(--muted); margin: 0; line-height: 1.7; }
+
   /* pain quote */
   .pain {
     background: linear-gradient(180deg, color-mix(in srgb, var(--warn) 7%, var(--card)), var(--card));
@@ -344,8 +373,8 @@
 <header class="hero">
   <div class="wrap">
     <div class="kicker-row">
-      <span>پروپوزال اجرای پروژه</span><span class="dot"></span>
       <span>کارفرما: شرکت صنعتی و خدمات مهندسی ایران</span><span class="dot"></span>
+      <span>مجری: فناوران فرایند فردا</span><span class="dot"></span>
       <span>تیر ۱۴۰۵ · نسخهٔ ۱٫۰</span>
     </div>
     <div class="eyebrow">شفاف‌سازی و یکپارچه‌سازی داده</div>
@@ -385,7 +414,7 @@
     </div>
 
     <div class="cta-row">
-      <a class="pill primary" href="#money">مبلغ اجرا <span class="num">۲۶۵ م.ت</span></a>
+      <a class="pill primary" href="#money">مبلغ اجرا <span class="num">۳۴۴٫۵ م.ت</span></a>
       <a class="pill ghost" href="#phases">۴۵ روز · ۳ فاز</a>
     </div>
   </div>
@@ -395,29 +424,66 @@
 <section id="state">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="eyebrow"><span class="sec-num">۰۲</span> &nbsp; وضعیت فعلی</div>
-      <h2>سه سامانه که با هم حرف نمی‌زنند</h2>
-      <p class="sub">هر دستور کارِ سرویس، هم‌زمان در هر سه سامانه ردپا دارد — از مصرف قطعه تا صورت‌حساب و هزینه. اما بدون کلید مشترک، هیچ‌کس مطمئن نیست این سه روایت با هم می‌خوانند.</p>
+      <div class="eyebrow"><span class="sec-num">۰۲</span> &nbsp; گستردگی سامانه‌ها</div>
+      <h2>سه سامانهٔ بزرگ، بدون زبان مشترک</h2>
+      <p class="sub">چالش، سه فایلِ ساده نیست؛ سه سیستمِ گسترده است که هر کدام ده‌ها ماژول و هزاران رکورد دارند و با کدینگ و منطقِ مستقلِ خود کار می‌کنند.</p>
     </div>
-    <div class="grid cols-3">
-      <div class="card sys-card reveal">
-        <div class="tag">۰۱ · مبدأ عملیات</div>
-        <h3>پلتفرم عملیات</h3>
-        <ul><li>دستور کار سرویس و بازرسی تجهیزات دریایی</li><li>تجهیزات، مشتریان و قراردادها</li><li>اقلام مصرفی، صورت‌حساب و هزینه/تنخواهِ هر دستور کار</li></ul>
+    <div class="sysprofiles">
+      <div class="sysprofile s1 reveal">
+        <div class="sp-head">
+          <div><div class="sp-tag">سامانهٔ ۱ · عملیات</div><h3>پلتفرم عملیات</h3></div>
+          <div class="sp-metric"><b>۱۳+</b><span>ماژول اصلی</span></div>
+        </div>
+        <p class="sp-desc">یک ERP عملیاتیِ کامل که کل چرخهٔ کسب‌وکار را از مشتری و قرارداد تا دستور کار، صورت‌حساب و وصول پوشش می‌دهد.</p>
+        <div class="sp-modules">
+          <div class="mod"><b>دستور کار</b><span>۹ خط سرویس <span class="en">(LR/LB/LS/FF/ND/UT/CI-LT/SE/PR)</span>، وضعیت، آرشیو فنی، داشبورد جزئیات</span></div>
+          <div class="mod"><b>مشتریان و قراردادها</b><span>مشتریان، شناورها، قراردادها، ضمانتنامه‌ها، آرشیو مدارک</span></div>
+          <div class="mod"><b>تجهیزات و پشتیبانی</b><span>ثبت و مدیریت تجهیزات و اموال</span></div>
+          <div class="mod"><b>هزینه و تنخواه</b><span>تنخواه‌گردانی، تأیید فنی/مالی/مدیرعامل، دستور پرداخت، پرداخت</span></div>
+          <div class="mod"><b>صورت‌حساب‌ها</b><span>صدور، پیش‌فاکتور، وصولی، کسورات، بانک، سامانه مؤدیان</span></div>
+          <div class="mod"><b>گواهینامه‌ها</b><span>صدور، هولوگرام، اعتبارسنجی، مدیریت</span></div>
+          <div class="mod"><b>اتوماسیون اداری</b><span>نامهٔ وارده/صادره، دبیرخانه، زونکن، آرشیو</span></div>
+          <div class="mod"><b>گزارش‌ها و پشتیبانی</b><span>گزارش‌های تجهیزات/دستورکار/هزینه/صورتحساب، تیکتینگ، کتابخانه</span></div>
+        </div>
+        <div class="sp-cx"><b>پیچیدگی:</b> چند شعبه، ۹ خط سرویس با چرخهٔ متفاوت، تأیید چندمرحله‌ای، اتصال به سامانه مالیاتی مؤدیان.</div>
       </div>
-      <div class="card sys-card reveal">
-        <div class="tag">۰۲ · موجودی</div>
-        <h3>نرم‌افزار انبار</h3>
-        <ul><li>کسر اقلام تعویضی از موجودی</li><li>کاردکس و ورود/خروج کالا</li><li>موجودی هر انبار و شعبه</li></ul>
+
+      <div class="sysprofile s2 reveal">
+        <div class="sp-head">
+          <div><div class="sp-tag">سامانهٔ ۲ · موجودی</div><h3>نرم‌افزار انبار</h3></div>
+          <div class="sp-metric"><b>چند انبار</b><span>در چند شعبه</span></div>
+        </div>
+        <p class="sp-desc">مدیریت موجودیِ قطعات و اقلام مصرفیِ تجهیزات ایمنی دریایی — از کپسول و پیروتکنیک تا جیره و اقلام انقضادار.</p>
+        <div class="sp-modules">
+          <div class="mod"><b>کاردکس و کدینگ کالا</b><span>کد کالای مستقل از قلمِ دستور کار</span></div>
+          <div class="mod"><b>رسید و حواله</b><span>ورود، خروج، مرجوعی، مصرف بابت دستور کار</span></div>
+          <div class="mod"><b>انبار هر شعبه</b><span>موجودی مجزا، انتقال بین انبارها</span></div>
+          <div class="mod"><b>سریال و انقضا</b><span>ردیابی سریال/بچ و تاریخ انقضای اقلام حیاتی</span></div>
+          <div class="mod"><b>نقطهٔ سفارش</b><span>حداقل/حداکثر و هشدار کمبود</span></div>
+          <div class="mod"><b>بهای تمام‌شده</b><span>قیمت‌گذاری و انبارگردانی</span></div>
+        </div>
+        <div class="sp-cx"><b>پیچیدگی:</b> کدینگ کالای متفاوت با دستور کار، اقلام سریال‌دار و انقضادار، موجودیِ جدا برای هر شعبه.</div>
       </div>
-      <div class="card sys-card reveal">
-        <div class="tag">۰۳ · دفاتر مالی</div>
-        <h3>نرم‌افزار حسابداری</h3>
-        <ul><li>ثبت رسمی هزینه و درآمد</li><li>بهای تمام‌شده و سود/زیان</li><li>اسناد و دفاتر مالی هر شعبه</li></ul>
+
+      <div class="sysprofile s3 reveal">
+        <div class="sp-head">
+          <div><div class="sp-tag">سامانهٔ ۳ · مالی</div><h3>نرم‌افزار حسابداری</h3></div>
+          <div class="sp-metric"><b>دفاتر رسمی</b><span>مرکز هزینه‌ای</span></div>
+        </div>
+        <p class="sp-desc">دفاتر مالیِ رسمیِ شرکت؛ جایی که هزینه، درآمد و سودِ واقعی باید نهایی و قابل‌ارائه شود.</p>
+        <div class="sp-modules">
+          <div class="mod"><b>کدینگ حساب‌ها</b><span>کل/معین/تفصیلی، مستقل از مشتریِ عملیات</span></div>
+          <div class="mod"><b>مراکز هزینه</b><span>به تفکیک شعبه و خط سرویس</span></div>
+          <div class="mod"><b>اسناد و خزانه</b><span>دریافت/پرداخت، بانک، حساب‌های دریافتنی/پرداختنی</span></div>
+          <div class="mod"><b>مالیات و ارزش افزوده</b><span>تطبیق با صورت‌حساب‌ها و مؤدیان</span></div>
+          <div class="mod"><b>دارایی ثابت</b><span>اموال و استهلاک</span></div>
+          <div class="mod"><b>صورت‌های مالی</b><span>تراز، سود و زیان</span></div>
+        </div>
+        <div class="sp-cx"><b>پیچیدگی:</b> کدینگ تفصیلیِ مستقل، مراکز هزینهٔ چندشعبه‌ای، الزامِ تطبیق با صورت‌حساب و مالیات.</div>
       </div>
     </div>
     <div class="chips reveal">
-      <span class="chip-label">خطوط سرویسِ ثبت‌شده در دستور کار:</span>
+      <span class="chip-label">۹ خط سرویسِ دستور کار:</span>
       <span class="chip">لایف‌رفت <span class="en">LR</span></span>
       <span class="chip">لایف‌بوت <span class="en">LB</span></span>
       <span class="chip">تجهیزات نجات جان <span class="en">LS</span></span>
@@ -440,6 +506,27 @@
       <p class="who">— به بیانِ مدیریت کارفرما</p>
     </div>
     <p class="reveal" style="margin-top:20px; color:var(--muted); max-width:64ch">این پروپوزال دقیقاً همین جملهٔ مبهم را به یک پاسخِ عددی، خودکار و لحظه‌ای تبدیل می‌کند: کجا می‌خواند، کجا نمی‌خواند، و دقیقاً چقدر.</p>
+  </div>
+</section>
+
+<!-- 3b. challenges -->
+<section id="challenges">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="sec-num">۰۳</span> &nbsp; چالش‌های یکپارچه‌سازی</div>
+      <h2>چرا این کار ساده نیست</h2>
+      <p class="sub">این‌ها همان موانعی هستند که تا امروز مانعِ خواندنِ خودکارِ سه سامانه شده‌اند — و پروژه دقیقاً برای حلِ آن‌ها طراحی شده است.</p>
+    </div>
+    <div class="chal-grid">
+      <div class="chal reveal"><span class="cn">۱</span><div><h3>نبودِ کلید مشترک</h3><p>کد کالا در انبار، قلم در دستور کار و تفصیلی در حسابداری هیچ شناسهٔ مشترکی ندارند.</p></div></div>
+      <div class="chal reveal"><span class="cn">۲</span><div><h3>داده در چند شعبه</h3><p>هر شعبه داده و گاهی نمونهٔ نرم‌افزارِ جداگانه دارد؛ تجمیع و یکدست‌سازی لازم است.</p></div></div>
+      <div class="chal reveal"><span class="cn">۳</span><div><h3>اختلافِ زمانیِ ثبت</h3><p>ثبت عملیات، خروج انبار و سند مالی هم‌زمان نیستند؛ تطبیق باید بازهٔ زمانی را بفهمد.</p></div></div>
+      <div class="chal reveal"><span class="cn">۴</span><div><h3>رکوردهای ناقص و تکراری</h3><p>صورت‌حساب بدون سند مالی، خروج انبار بدون دستور کار، هزینهٔ تنخواه بدون سند.</p></div></div>
+      <div class="chal reveal"><span class="cn">۵</span><div><h3>اقلام سریال‌دار و انقضادار</h3><p>پیروتکنیک، جیره و داروی لایف‌رفت با سریال و تاریخ انقضا، ردیابیِ ویژه می‌خواهند.</p></div></div>
+      <div class="chal reveal"><span class="cn">۶</span><div><h3>۹ خط سرویس با منطقِ متفاوت</h3><p>هر خط <span style="direction:ltr;unicode-bidi:isolate">(LR/LB/FF/ND…)</span> اقلام، چرخه و قواعدِ مصرفِ متفاوت دارد.</p></div></div>
+      <div class="chal reveal"><span class="cn">۷</span><div><h3>وضعیت و تأییدِ چندمرحله‌ای</h3><p>تنخواه و صورت‌حساب چند وضعیت و چند سطح تأیید دارند که باید در تطبیق لحاظ شوند.</p></div></div>
+      <div class="chal reveal"><span class="cn">۸</span><div><h3>مالیات و سامانه مؤدیان</h3><p>صورت‌حساب‌ها باید با اظهارِ مالیاتی و دفاترِ رسمی هم بخوانند.</p></div></div>
+    </div>
   </div>
 </section>
 
@@ -470,7 +557,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow"><span class="sec-num">۰۵</span> &nbsp; فازبندی اجرا</div>
-      <h2>سه فاز، هر کدام ۱۵ روز</h2>
+      <h2>سه فاز، در مجموع ۴۵ روز</h2>
       <p class="sub">هر فاز خروجی مستقل و ملموس دارد؛ فاز دوم همان موتوری است که به پرسش اصلی مدیریت پاسخ می‌دهد.</p>
     </div>
     <div class="grid cols-3">
@@ -566,16 +653,16 @@
         <table class="tbl">
           <thead><tr><th>ردیف</th><th>شرح</th><th class="num">مبلغ (تومان)</th></tr></thead>
           <tbody>
-            <tr><td>۱</td><td>فاز اول — ساخت انبار داده <span style="color:var(--muted)">(۱۰ روز)</span></td><td class="num">۶۵٬۰۰۰٬۰۰۰</td></tr>
-            <tr><td>۲</td><td>فاز دوم — مایگریشن و متناظرسازی <span style="color:var(--muted)">(۲۰ روز)</span></td><td class="num">۱۱۰٬۰۰۰٬۰۰۰</td></tr>
-            <tr><td>۳</td><td>فاز سوم — پلتفرم BI و داشبورد <span style="color:var(--muted)">(۱۵ روز)</span></td><td class="num">۹۰٬۰۰۰٬۰۰۰</td></tr>
-            <tr class="total"><td></td><td>جمع کل قرارداد اجرا</td><td class="num">۲۶۵٬۰۰۰٬۰۰۰</td></tr>
+            <tr><td>۱</td><td>فاز اول — ساخت انبار داده <span style="color:var(--muted)">(۱۰ روز)</span></td><td class="num">۸۴٬۵۰۰٬۰۰۰</td></tr>
+            <tr><td>۲</td><td>فاز دوم — مایگریشن و متناظرسازی <span style="color:var(--muted)">(۲۰ روز)</span></td><td class="num">۱۴۳٬۰۰۰٬۰۰۰</td></tr>
+            <tr><td>۳</td><td>فاز سوم — پلتفرم BI و داشبورد <span style="color:var(--muted)">(۱۵ روز)</span></td><td class="num">۱۱۷٬۰۰۰٬۰۰۰</td></tr>
+            <tr class="total"><td></td><td>جمع کل قرارداد اجرا</td><td class="num">۳۴۴٬۵۰۰٬۰۰۰</td></tr>
           </tbody>
         </table>
       </div>
       <div class="card price-card reveal">
         <div class="lbl">کل قرارداد اجرا</div>
-        <div class="big">۲۶۵</div>
+        <div class="big">۳۴۴٫۵</div>
         <div class="unit">میلیون تومان</div>
         <div class="sub2">۳ فاز · ۴۵ روز کاری</div>
       </div>
@@ -597,7 +684,7 @@
         <p style="margin:0; font-size:.9rem; color:var(--muted)">افزودن داشبورد و گزارش تازه · تعریف قواعد مغایرت‌گیری جدید · رفع اشکال · به‌روزرسانی و پشتیبانی فنی.</p>
       </div>
       <div class="amt">
-        <div class="n">۲۵ م.ت</div>
+        <div class="n">۳۲٫۵ م.ت</div>
         <div class="u">در هر ماه · نامحدود</div>
       </div>
     </div>
@@ -621,8 +708,8 @@
 
 <footer>
   <div class="wrap">
-    <div class="sign">با احترام</div>
-    <div class="ph">[نام، لوگو و امضای شرکت مجری — محل تکمیل]</div>
+    <div class="sign">با احترام — شرکت فناوران فرایند فردا</div>
+    <div class="ph">[محل درج لوگو، مهر و امضای مجاز]</div>
   </div>
 </footer>
 
