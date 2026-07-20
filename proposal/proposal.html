@@ -264,6 +264,15 @@
   .pain .q { font-size: clamp(1.2rem, 2.4vw, 1.65rem); color: var(--ink); font-weight: 700; line-height: 1.6; margin-bottom: 10px; }
   .pain .who { font-size: .84rem; color: var(--warn); font-weight: 700; }
 
+  .pains-head { margin: 34px 0 4px; font-weight: 800; color: var(--ink); font-size: 1.18rem; }
+  .pains-sub { margin: 0 0 16px; color: var(--muted); font-size: .9rem; }
+  .pains { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+  @media (max-width: 720px){ .pains { grid-template-columns: 1fr; } }
+  .paincard { background: var(--card); border: 1px solid var(--line); border-inline-start: 4px solid var(--warn); border-radius: 12px; padding: 15px 18px; box-shadow: var(--shadow); }
+  .paincard .q2 { display: flex; gap: 8px; font-size: .98rem; font-weight: 700; color: var(--ink); margin: 0 0 5px; line-height: 1.6; }
+  .paincard .q2::before { content: "؟"; color: var(--warn); font-weight: 800; flex: 0 0 auto; }
+  .paincard .why { font-size: .84rem; color: var(--muted); margin: 0; line-height: 1.7; }
+
   /* phases */
   .phase { position: relative; }
   .phase .head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
@@ -505,7 +514,20 @@
       <p class="q">«اصلاً نمی‌دانیم آیا انبار بر اساس عملیات و حسابداری درست می‌خواند یا نه — و وضعیت حسابداری به چه صورت است.»</p>
       <p class="who">— به بیانِ مدیریت کارفرما</p>
     </div>
-    <p class="reveal" style="margin-top:20px; color:var(--muted); max-width:64ch">این پروپوزال دقیقاً همین جملهٔ مبهم را به یک پاسخِ عددی، خودکار و لحظه‌ای تبدیل می‌کند: کجا می‌خواند، کجا نمی‌خواند، و دقیقاً چقدر.</p>
+    <p class="reveal" style="margin-top:20px; color:var(--muted); max-width:64ch">این تنها یک نمونه است. وقتی سه سامانه جدا هستند، مدیریت به ساده‌ترین پرسش‌ها هم پاسخِ قطعی ندارد.</p>
+
+    <div class="pains-head reveal">سایر دردها — پرسش‌هایی که امروز بی‌پاسخ می‌مانند</div>
+    <p class="pains-sub reveal">هر پرسش، پاسخش در یک سامانهٔ دیگر است؛ و چون به هم وصل نیستند، جواب قطعی وجود ندارد.</p>
+    <div class="pains">
+      <div class="paincard reveal"><p class="q2">سود واقعیِ هر دستور کار چقدر است؟</p><p class="why">درآمد در صورت‌حساب، هزینه در تنخواه و انبار پخش است؛ هیچ‌جا کنار هم نمی‌آید.</p></div>
+      <div class="paincard reveal"><p class="q2">موجودی واقعیِ انبار چقدر است و چقدرش کسری/پرت دارد؟</p><p class="why">مصرفِ ثبت‌شده در عملیات با کسرِ انبار تطبیق داده نمی‌شود.</p></div>
+      <div class="paincard reveal"><p class="q2">کدام شعبه سودده است و کدام زیان‌ده؟</p><p class="why">عملکرد شعب روی یک معیارِ مشترک و قابل‌اعتماد مقایسه نمی‌شود.</p></div>
+      <div class="paincard reveal"><p class="q2">آیا همهٔ صورت‌حساب‌های صادره در حسابداری ثبت و وصول شده‌اند؟</p><p class="why">صورت‌حساب در عملیات و سند در حسابداری است؛ جامانده‌ها پیدا نمی‌شوند.</p></div>
+      <div class="paincard reveal"><p class="q2">هزینهٔ هر تنخواه به کدام دستور کار خورده است؟</p><p class="why">تخصیصِ هزینه به عملیات مبهم است و بهای تمام‌شده اشتباه درمی‌آید.</p></div>
+      <div class="paincard reveal"><p class="q2">چند قلمِ انقضادار/سریال‌دار داریم و کجا مصرف شده؟</p><p class="why">ردیابیِ اقلام حیاتی بین عملیات و انبار وجود ندارد — ریسک ایمنی و مالی.</p></div>
+      <div class="paincard reveal"><p class="q2">مطالبات معوق از مشتریان چقدر است؟</p><p class="why">وضعیت وصول و کسورات بین صورت‌حساب و حسابداری یکپارچه نیست.</p></div>
+      <div class="paincard reveal"><p class="q2">چرا عددِ گزارش عملیات با گزارش مالی فرق دارد؟</p><p class="why">هر سامانه یک «حقیقتِ» متفاوت گزارش می‌کند و اعتماد از بین می‌رود.</p></div>
+    </div>
   </div>
 </section>
 
