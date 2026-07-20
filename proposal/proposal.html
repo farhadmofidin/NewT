@@ -219,6 +219,11 @@
   .sys-card li { position: relative; padding-inline-start: 18px; font-size: .9rem; color: var(--text); margin-bottom: 6px; }
   .sys-card li::before { content: ""; position: absolute; inset-inline-start: 0; top: .72em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 20px; }
+  .chip-label { font-size: .82rem; color: var(--muted); margin-inline-end: 4px; font-weight: 700; }
+  .chip { font-size: .82rem; padding: 6px 12px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 9%, transparent); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--line)); white-space: nowrap; }
+  .chip .en { font-size: .72rem; opacity: .75; letter-spacing: .02em; }
+
   /* pain quote */
   .pain {
     background: linear-gradient(180deg, color-mix(in srgb, var(--warn) 7%, var(--card)), var(--card));
@@ -353,7 +358,7 @@
         <div class="nodes">
           <div class="node">
             <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l2 5 4-14 2 9h6"/></svg></span>
-            <div><b>پلتفرم عملیات</b><span>ثبت سرویس لایف‌رفت</span></div>
+            <div><b>پلتفرم عملیات</b><span>دستور کار، صورت‌حساب، هزینه</span></div>
           </div>
           <div class="node">
             <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></span>
@@ -392,13 +397,13 @@
     <div class="sec-head reveal">
       <div class="eyebrow"><span class="sec-num">۰۲</span> &nbsp; وضعیت فعلی</div>
       <h2>سه سامانه که با هم حرف نمی‌زنند</h2>
-      <p class="sub">هر عملیاتِ سرویس، هم‌زمان در هر سه سامانه ردپا دارد؛ اما بدون کلید مشترک، هیچ‌کس نمی‌تواند مطمئن باشد این سه روایت با هم می‌خوانند.</p>
+      <p class="sub">هر دستور کارِ سرویس، هم‌زمان در هر سه سامانه ردپا دارد — از مصرف قطعه تا صورت‌حساب و هزینه. اما بدون کلید مشترک، هیچ‌کس مطمئن نیست این سه روایت با هم می‌خوانند.</p>
     </div>
     <div class="grid cols-3">
       <div class="card sys-card reveal">
-        <div class="tag">۰۱ · مبدأ</div>
+        <div class="tag">۰۱ · مبدأ عملیات</div>
         <h3>پلتفرم عملیات</h3>
-        <ul><li>ثبت هر عملیات سرویس/بازرسی لایف‌رفت</li><li>شناسه عملیات، مشتری، تجهیز</li><li>اقلام تعویض‌شده و شعبه</li></ul>
+        <ul><li>دستور کار سرویس و بازرسی تجهیزات دریایی</li><li>تجهیزات، مشتریان و قراردادها</li><li>اقلام مصرفی، صورت‌حساب و هزینه/تنخواهِ هر دستور کار</li></ul>
       </div>
       <div class="card sys-card reveal">
         <div class="tag">۰۲ · موجودی</div>
@@ -406,10 +411,22 @@
         <ul><li>کسر اقلام تعویضی از موجودی</li><li>کاردکس و ورود/خروج کالا</li><li>موجودی هر انبار و شعبه</li></ul>
       </div>
       <div class="card sys-card reveal">
-        <div class="tag">۰۳ · مالی</div>
+        <div class="tag">۰۳ · دفاتر مالی</div>
         <h3>نرم‌افزار حسابداری</h3>
-        <ul><li>ثبت هزینه و درآمد هر عملیات</li><li>بهای تمام‌شده و سود/زیان</li><li>اسناد مالی هر شعبه</li></ul>
+        <ul><li>ثبت رسمی هزینه و درآمد</li><li>بهای تمام‌شده و سود/زیان</li><li>اسناد و دفاتر مالی هر شعبه</li></ul>
       </div>
+    </div>
+    <div class="chips reveal">
+      <span class="chip-label">خطوط سرویسِ ثبت‌شده در دستور کار:</span>
+      <span class="chip">لایف‌رفت <span class="en">LR</span></span>
+      <span class="chip">لایف‌بوت <span class="en">LB</span></span>
+      <span class="chip">تجهیزات نجات جان <span class="en">LS</span></span>
+      <span class="chip">اطفاء حریق <span class="en">FF</span></span>
+      <span class="chip">آزمایش غیرمخرب <span class="en">ND</span></span>
+      <span class="chip">ضخامت‌سنجی <span class="en">UT</span></span>
+      <span class="chip">آزمایش بارگذاری <span class="en">CI/LT</span></span>
+      <span class="chip">فروش قطعات <span class="en">SE</span></span>
+      <span class="chip">پروژه‌ها <span class="en">PR</span></span>
     </div>
   </div>
 </section>
@@ -472,9 +489,9 @@
         <div class="head"><span class="pnum">فاز ۰۲</span><span class="days">۲۰ روز</span></div>
         <h3>مایگریشن و متناظرسازی</h3>
         <ul>
-          <li>تعریف کلید مشترک و قواعد متناظرسازی سه سامانه</li>
-          <li>موتور مغایرت‌گیری سه‌جانبه (عملیات ⇄ انبار ⇄ حسابداری)</li>
-          <li>دسته‌بندی مغایرت: کسرنشده، سند مفقود، درآمد بی‌انتساب</li>
+          <li>کلید مشترک بین دستور کار، انبار و حسابداری</li>
+          <li>مغایرت‌گیری سه‌محوره: اقلام مصرفی ⇄ انبار، صورت‌حساب/درآمد ⇄ حسابداری، هزینه و تنخواه ⇄ حسابداری</li>
+          <li>دسته‌بندی مغایرت: قلم کسرنشده، سند مفقود، درآمد بی‌انتساب، مغایرت تنخواه</li>
           <li>مایگریشن دادهٔ تاریخی و اعتبارسنجی با نمونه‌گیری</li>
         </ul>
         <div class="out"><b>خروجی:</b> گزارش مغایرت‌گیری خودکار — دقیقاً کجا انبار با عملیات و حسابداری نمی‌خواند.</div>
