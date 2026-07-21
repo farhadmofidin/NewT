@@ -313,16 +313,19 @@
   .tl-bar { display: flex; gap: 6px; margin-bottom: 20px; }
   .tl-bar .seg { flex-grow: 1; flex-basis: 0; height: 12px; border-radius: 6px; position: relative; }
   .tl-bar .seg.s1 { background: var(--accent); flex-grow: 10; }
-  .tl-bar .seg.s2 { background: var(--accent-2); flex-grow: 20; }
-  .tl-bar .seg.s3 { background: var(--gold); flex-grow: 15; }
-  .tl-legend { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+  .tl-bar .seg.s2 { background: var(--accent-2); flex-grow: 10; }
+  .tl-bar .seg.s3 { background: var(--gold); flex-grow: 20; }
+  .tl-bar .seg.s4 { background: var(--good); flex-grow: 15; }
+  .tl-legend { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
   .tl-item { border-top: 3px solid var(--accent); padding-top: 12px; }
   .tl-item.i2 { border-color: var(--accent-2); }
   .tl-item.i3 { border-color: var(--gold); }
+  .tl-item.i4 { border-color: var(--good); }
   .tl-item .r { font-size: .74rem; color: var(--muted); font-variant-numeric: tabular-nums; }
   .tl-item h3 { font-size: 1rem; margin: 3px 0; }
   .tl-item .d { font-size: .82rem; color: var(--accent); font-weight: 700; }
-  @media (max-width: 620px){ .tl-legend { grid-template-columns: 1fr; } }
+  @media (max-width: 820px){ .tl-legend { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 460px){ .tl-legend { grid-template-columns: 1fr; } }
 
   /* money */
   .money-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; }
@@ -423,7 +426,7 @@
     </div>
 
     <div class="cta-row">
-      <a class="pill primary" href="#phases">۴۵ روز · ۳ فاز</a>
+      <a class="pill primary" href="#phases">۵۵ روز · ۴ فاز</a>
       <a class="pill ghost" href="#solution">راه‌حل پیشنهادی</a>
     </div>
   </div>
@@ -575,12 +578,23 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow"><span class="sec-num">۰۵</span> &nbsp; فازبندی اجرا</div>
-      <h2>سه فاز، در مجموع ۴۵ روز</h2>
-      <p class="sub">هر فاز خروجی مستقل و ملموس دارد؛ فاز دوم همان موتوری است که به پرسش اصلی مدیریت پاسخ می‌دهد.</p>
+      <h2>چهار فاز، در مجموع ۵۵ روز</h2>
+      <p class="sub">هر فاز خروجی مستقل و ملموس دارد؛ فاز نخست ساختار پنهانِ دیتابیس‌ها را باز می‌کند و فاز سوم همان موتوری است که به پرسش اصلی مدیریت پاسخ می‌دهد.</p>
     </div>
-    <div class="grid cols-3">
+    <div class="grid cols-2">
       <div class="card phase reveal">
         <div class="head"><span class="pnum">فاز ۰۱</span><span class="days">۱۰ روز</span></div>
+        <h3>رمزگشایی دیتابیس سه نرم‌افزار</h3>
+        <ul>
+          <li>مهندسی معکوس و رمزگشایی ساختار دیتابیس هر سه نرم‌افزار</li>
+          <li>شناسایی جداول، روابط و محل ذخیرهٔ دستور کار، اقلام، صورت‌حساب و اسناد مالی</li>
+          <li>باز کردن داده‌های رمزنگاری‌شده/کدشده و دسترسی امن به آن‌ها</li>
+          <li>تهیهٔ دیکشنری داده و نقشهٔ کاملِ سه دیتابیس</li>
+        </ul>
+        <div class="out"><b>خروجی:</b> نقشه و دیکشنری کاملِ دیتابیس سه نرم‌افزار — پیش‌نیازِ استخراج داده.</div>
+      </div>
+      <div class="card phase reveal">
+        <div class="head"><span class="pnum">فاز ۰۲</span><span class="days">۱۰ روز</span></div>
         <h3>ساخت انبار داده</h3>
         <ul>
           <li>شناسایی و مستندسازی منابع سه سامانه در همهٔ شعب</li>
@@ -590,7 +604,7 @@
         <div class="out"><b>خروجی:</b> انبار دادهٔ عملیاتیِ یکپارچه از هر سه سامانه و همهٔ شعب.</div>
       </div>
       <div class="card phase reveal">
-        <div class="head"><span class="pnum">فاز ۰۲</span><span class="days">۲۰ روز</span></div>
+        <div class="head"><span class="pnum">فاز ۰۳</span><span class="days">۲۰ روز</span></div>
         <h3>مایگریشن و متناظرسازی</h3>
         <ul>
           <li>کلید مشترک بین دستور کار، انبار و حسابداری</li>
@@ -601,7 +615,7 @@
         <div class="out"><b>خروجی:</b> گزارش مغایرت‌گیری خودکار — دقیقاً کجا انبار با عملیات و حسابداری نمی‌خواند.</div>
       </div>
       <div class="card phase reveal">
-        <div class="head"><span class="pnum">فاز ۰۳</span><span class="days">۱۵ روز</span></div>
+        <div class="head"><span class="pnum">فاز ۰۴</span><span class="days">۱۵ روز</span></div>
         <h3>پلتفرم BI و داشبوردها</h3>
         <ul>
           <li>داشبورد عملیاتی: حجم عملیات و عملکرد شعب</li>
@@ -645,14 +659,15 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow"><span class="sec-num">۰۷</span> &nbsp; زمان‌بندی</div>
-      <h2>۴۵ روز، از داده تا داشبورد</h2>
+      <h2>۵۵ روز، از رمزگشایی تا داشبورد</h2>
     </div>
     <div class="timeline reveal">
-      <div class="tl-bar"><div class="seg s1"></div><div class="seg s2"></div><div class="seg s3"></div></div>
+      <div class="tl-bar"><div class="seg s1"></div><div class="seg s2"></div><div class="seg s3"></div><div class="seg s4"></div></div>
       <div class="tl-legend">
-        <div class="tl-item i1"><div class="r">روز ۱ تا ۱۰</div><h3>ساخت انبار داده</h3><div class="d">فاز ۱ · ۱۰ روز</div></div>
-        <div class="tl-item i2"><div class="r">روز ۱۱ تا ۳۰</div><h3>مایگریشن و متناظرسازی</h3><div class="d">فاز ۲ · ۲۰ روز</div></div>
-        <div class="tl-item i3"><div class="r">روز ۳۱ تا ۴۵</div><h3>پلتفرم BI و داشبورد</h3><div class="d">فاز ۳ · ۱۵ روز</div></div>
+        <div class="tl-item i1"><div class="r">روز ۱ تا ۱۰</div><h3>رمزگشایی دیتابیس‌ها</h3><div class="d">فاز ۱ · ۱۰ روز</div></div>
+        <div class="tl-item i2"><div class="r">روز ۱۱ تا ۲۰</div><h3>ساخت انبار داده</h3><div class="d">فاز ۲ · ۱۰ روز</div></div>
+        <div class="tl-item i3"><div class="r">روز ۲۱ تا ۴۰</div><h3>مایگریشن و متناظرسازی</h3><div class="d">فاز ۳ · ۲۰ روز</div></div>
+        <div class="tl-item i4"><div class="r">روز ۴۱ تا ۵۵</div><h3>پلتفرم BI و داشبورد</h3><div class="d">فاز ۴ · ۱۵ روز</div></div>
       </div>
     </div>
   </div>
@@ -670,18 +685,19 @@
         <table class="tbl">
           <thead><tr><th>ردیف</th><th>شرح</th><th class="num">مبلغ (تومان)</th></tr></thead>
           <tbody>
-            <tr><td>۱</td><td>فاز اول — ساخت انبار داده <span style="color:var(--muted)">(۱۰ روز)</span></td><td class="num">۸۴٬۵۰۰٬۰۰۰</td></tr>
-            <tr><td>۲</td><td>فاز دوم — مایگریشن و متناظرسازی <span style="color:var(--muted)">(۲۰ روز)</span></td><td class="num">۱۴۳٬۰۰۰٬۰۰۰</td></tr>
-            <tr><td>۳</td><td>فاز سوم — پلتفرم BI و داشبورد <span style="color:var(--muted)">(۱۵ روز)</span></td><td class="num">۱۱۷٬۰۰۰٬۰۰۰</td></tr>
-            <tr class="total"><td></td><td>جمع کل قرارداد اجرا</td><td class="num">۳۴۴٬۵۰۰٬۰۰۰</td></tr>
+            <tr><td>۱</td><td>فاز اول — رمزگشایی دیتابیس سه نرم‌افزار <span style="color:var(--muted)">(۱۰ روز)</span></td><td class="num">۵۵٬۰۰۰٬۰۰۰</td></tr>
+            <tr><td>۲</td><td>فاز دوم — ساخت انبار داده <span style="color:var(--muted)">(۱۰ روز)</span></td><td class="num">۸۴٬۵۰۰٬۰۰۰</td></tr>
+            <tr><td>۳</td><td>فاز سوم — مایگریشن و متناظرسازی <span style="color:var(--muted)">(۲۰ روز)</span></td><td class="num">۱۴۳٬۰۰۰٬۰۰۰</td></tr>
+            <tr><td>۴</td><td>فاز چهارم — پلتفرم BI و داشبورد <span style="color:var(--muted)">(۱۵ روز)</span></td><td class="num">۱۱۷٬۰۰۰٬۰۰۰</td></tr>
+            <tr class="total"><td></td><td>جمع کل قرارداد اجرا</td><td class="num">۳۹۹٬۵۰۰٬۰۰۰</td></tr>
           </tbody>
         </table>
       </div>
       <div class="card price-card reveal">
         <div class="lbl">کل قرارداد اجرا</div>
-        <div class="big">۳۴۴٫۵</div>
+        <div class="big">۳۹۹٫۵</div>
         <div class="unit">میلیون تومان</div>
-        <div class="sub2">۳ فاز · ۴۵ روز کاری</div>
+        <div class="sub2">۴ فاز · ۵۵ روز کاری</div>
       </div>
     </div>
     <p class="reveal" style="margin-top:14px; font-size:.84rem; color:var(--muted)">پرداخت مبلغ هر فاز متناسب با تحویل همان فاز انجام می‌شود. مبالغ فوق مطابق قوانین جاری مشمول مالیات بر ارزش افزوده خواهد بود (در صورت شمول).</p>
@@ -718,7 +734,7 @@
     <div class="steps reveal">
       <div class="step"><span class="n">۱</span><p>تأیید کلیات پروپوزال و برنامهٔ فازبندی.</p></div>
       <div class="step"><span class="n">۲</span><p>جلسهٔ فنی برای دسترسی به سه سامانه و شروع فاز اول.</p></div>
-      <div class="step"><span class="n">۳</span><p>عقد قرارداد و آغاز اجرا (۴۵ روز تا تحویل پلتفرم BI).</p></div>
+      <div class="step"><span class="n">۳</span><p>عقد قرارداد و آغاز اجرا (۵۵ روز تا تحویل پلتفرم BI).</p></div>
     </div>
   </div>
 </section>
